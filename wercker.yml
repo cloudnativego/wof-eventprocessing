@@ -1,0 +1,62 @@
+box: golang
+
+services:
+  - rabbitmq:3
+
+build:
+
+  steps:
+    - setup-go-workspace
+
+    - script:
+        name: go get
+        code: |
+          cd $WERCKER_SOURCE_DIR
+          go version
+          go get -u github.com/tools/godep
+          go get -u github.com/cloudnativego/cf-tools/vcapinate
+          export PATH=$WERCKER_SOURCE_DIR/bin:$PATH
+
+    # Build the project
+    - script:
+        name: go build
+        code: |
+          godep go build
+
+    - script:
+        name: env
+        code: env
+
+    # Test the project
+    - script:
+        name: unit test event processor
+        code: |
+          godep go test -v ./events/...
+
+    - script:
+        name: unit test service handlers
+        code: |
+          godep go test -v ./service/...
+
+#    - script:
+#        name: integration tests
+#        code: |
+#          export VCAP_SERVICES=`vcapinate -path=./integrations/vcap.yml`
+#          export VCAP_APPLICATION={}
+#          godep go test ./integrations/_test -v -race
+
+    - script:
+        name: copy files to wercker output
+        code: |
+          cp -R ./ ${WERCKER_OUTPUT_DIR}
+
+deploy:
+ steps:
+   - internal/docker-push:
+       username: $USERNAME
+       password: $PASSWORD
+       cmd: /pipeline/source/wof-eventprocessing
+       port: "8080"
+       tag: v1
+       repository: cloudnativego/wof-eventprocessing
+       registry: https://registry.hub.docker.com
