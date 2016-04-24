@@ -54,23 +54,23 @@
 		},
 		{
 			"ImportPath": "gopkg.in/mgo.v2",
-			"Comment": "r2015.06.03-5-g22287ba",
-			"Rev": "22287bab4379e1fbf6002fb4eb769888f3fb224c"
+			"Comment": "r2016.02.04-1-gb6e2fa3",
+			"Rev": "b6e2fa371e64216a45e61072a96d4e3859f169da"
 		},
 		{
 			"ImportPath": "gopkg.in/mgo.v2/bson",
-			"Comment": "r2015.06.03-5-g22287ba",
-			"Rev": "22287bab4379e1fbf6002fb4eb769888f3fb224c"
+			"Comment": "r2016.02.04-1-gb6e2fa3",
+			"Rev": "b6e2fa371e64216a45e61072a96d4e3859f169da"
 		},
 		{
 			"ImportPath": "gopkg.in/mgo.v2/internal/sasl",
-			"Comment": "r2015.06.03-5-g22287ba",
-			"Rev": "22287bab4379e1fbf6002fb4eb769888f3fb224c"
+			"Comment": "r2016.02.04-1-gb6e2fa3",
+			"Rev": "b6e2fa371e64216a45e61072a96d4e3859f169da"
 		},
 		{
 			"ImportPath": "gopkg.in/mgo.v2/internal/scram",
-			"Comment": "r2015.06.03-5-g22287ba",
-			"Rev": "22287bab4379e1fbf6002fb4eb769888f3fb224c"
+			"Comment": "r2016.02.04-1-gb6e2fa3",
+			"Rev": "b6e2fa371e64216a45e61072a96d4e3859f169da"
 		}
 	]
 }
